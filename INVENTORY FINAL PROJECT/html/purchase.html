@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Report</title>
+    <script type="module" src="/js/report.js"></script>
+    <script type="module" src="/js/user.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="/css/purchase.css"/>
+</head>
+<body>
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#!">PNC-PGSIS</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+            <a href="/html/home.html">HOME</a>
+          </li>
+          <li>
+            <a href="/html/product.html">PRODUCTS</a>
+          </li>
+          <li>
+            <a href="#!">REPORTS</a>
+            <ul class="navbar-dropdown">
+              <li>
+                <a href="/html/sales.html">SALES REPORT</a>
+              </li>
+              <li>
+                <a href="/html/inventory.html">INVENTORY REPORT</a>
+              </li>
+              <li>
+                <a href="/html/purchase.html">PURCHASE REPORT</a>
+              </li>
+              <li>
+                <a href="/html/expiration.html">EXPIRATION REPORT</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a id="user-modal-link" href="#user-modal">ACCOUNTS</a>
+          </li>            
+          <li>
+            <a href="#" id="logout"><i class="uil uil-sign-out-alt" style="font-size: 25px;"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <div class="modal-overlay">
+    <div id="user-modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>ACCOUNTS LIST</h2>
+        <table id="user-table">
+          <thead>
+            <tr>
+              <th>USERNAME</th>
+              <th>EMAIL</th>
+              <th>ROLE</th>
+            </tr>
+          </thead>
+          <tbody id="user-list"></tbody>
+        </table></div>
+    </div>
+  </div>
+    <div id="purchaseReport">
+        <h2>PURCHASE REPORT</h2>
+        <form id="dateFilterForm">
+          <label for="startDate">FROM</label>
+          <input type="date" id="startDate" name="startDate">
+          <label for="endDate">TO:</label>
+          <input type="date" id="endDate" name="endDate">
+          <input type="submit" id="generateButton" value="GENERATE">
+        </form>        
+        <table id="purchaseReportTable">
+          <thead>
+            <tr>
+              <th>PRODUCT ID</th>
+              <th>PRODUCT NAME</th>
+              <th>QUANTITY</th>
+              <th>PRODUCT COST</th>
+              <th>TOTAL COST</th>
+            </tr>
+          </thead>
+          <tbody id="purchaseReportTableBody">
+          </tbody>
+        </table>
+      </div>      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function() {
+       // open and close nav
+        $('#navbar-toggle').click(function() {
+        $('nav ul').slideToggle();
+       });
+   
+        // Hamburger toggle
+       $('#navbar-toggle').on('click', function() {
+       $(this).toggleClass('active');
+      });
+   
+       // If a link has a dropdown, add sub menu toggle.
+        $('nav ul li a:not(:only-child)').click(function(e) {
+       e.preventDefault();
+       let $dropdown = $(this).siblings('.navbar-dropdown');
+       if ($dropdown.is(':hidden')) {
+         $dropdown.slideDown('slow');
+       } else {
+         $dropdown.slideUp('slow');
+       }
+     });
+       // Click outside the dropdown will remove the dropdown class
+        $('html').click(function() {
+       $('.navbar-dropdown').slideUp(50000); //duration (in milliseconds) as needed
+     });
+   });
+      </script>
+</body>
+</html>

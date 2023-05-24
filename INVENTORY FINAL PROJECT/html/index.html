@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/user.js"></script>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <title>Form</title>
+    </head>
+    <body>
+      <div class="main">
+        <img src="/IMG/HomePage.png" alt="Centered Image">
+        <div class="login">
+          <form class="form" id="login-form">
+            <h1>LOGIN</h1>
+            <p class="text">Please enter your credentials to login.</p>
+            <input class="input" type="email" name="email" placeholder="Email" required="">
+            <input class="input" type="password" name="pswd" placeholder="Password" required="">
+            <button id="login-btn">Log in</button>
+            <p>Not registered? <a href="#" id="create-account-link">Create an account</a></p>
+          </form>
+        </div>
+        <div class="register" style="display:none">
+          <form class="form" id="register-form">
+            <h1>REGISTER</h1>
+            <p class="text">Please enter your information to register.</p>
+            <input class="input" type="text" name="username" placeholder="Username" required="">
+            <input class="input" type="email" name="email" placeholder="Email" required="">
+            <input class="input" type="password" name="pswd" placeholder="Password" required="">
+            <select class="input" name="role">
+              <option value="admin">Admin</option>
+              <option value="cashier">Cashier</option>
+            </select>
+            <button id="register-btn">Register</button>
+          </form>
+        </div>
+      </div>
+      <script>
+     $(document).ready(function() {
+     // Get the "Create Account" link element and the registration form element
+     let createAccountLink = $("#create-account-link");
+     let registerForm = $(".register");
+     
+     createAccountLink.click(function(event) {
+     event.preventDefault(); 
+     registerForm.css("display", "block"); 
+      });
+    });
+
+    </script>
+</body>
+  </html>      

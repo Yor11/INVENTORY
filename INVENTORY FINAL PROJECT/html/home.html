@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="module" src="/js/user.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    
+    
+  </head>
+  <body>
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand">
+          <a href="#!">PNC-PGSIS</a>
+        </div>
+        <nav>
+          <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+          <ul class="nav-list">
+            <li>
+              <a href="/html/home.html">HOME</a>
+            </li>
+            <li>
+              <a href="/html/product.html">PRODUCTS</a>
+            </li>
+            <li>
+              <a href="#!">REPORTS</a>
+              <ul class="navbar-dropdown">
+                <li>
+                  <a href="/html/sales.html">SALES REPORT</a>
+                </li>
+                <li>
+                  <a href="/html/inventory.html">INVENTORY REPORT</a>
+                </li>
+                <li>
+                  <a href="/html/purchase.html">PURCHASE REPORT</a>
+                </li>
+                <li>
+                  <a href="/html/expiration.html">EXPIRATION REPORT</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a id="user-modal-link" href="#user-modal">ACCOUNTS</a>
+            </li>            
+            <li>
+              <a id="logout"><i class="uil uil-sign-out-alt" style="font-size: 25px;"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <div class="home-content">
+      <h1>PNC FRESH MART</h1>
+      <p>"Efficiently manage your grocery store's 
+        inventory with Fresh Mart's advanced inventory system. 
+        Streamline operations, optimize stock levels, and enhance 
+        customer satisfaction. Experience hassle-free inventory
+         management like never before with Fresh Mart."</p>
+      <!-- Additional content here -->
+    </div>
+    <div class="modal-overlay">
+      <div id="user-modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>ACCOUNTS LIST</h2>
+          <table id="user-table">
+            <thead>
+              <tr>
+                <th>USERNAME</th>
+                <th>EMAIL</th>
+                <th>ROLE</th>
+              </tr>
+            </thead>
+            <tbody id="user-list"></tbody>
+          </table></div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="/js/product.js"></script>
+    <script>
+      $(document).ready(function() {
+     // open and close nav
+      $('#navbar-toggle').click(function() {
+      $('nav ul').slideToggle();
+     });
+ 
+      // Hamburger toggle
+     $('#navbar-toggle').on('click', function() {
+     $(this).toggleClass('active');
+    });
+ 
+     // If a link has a dropdown, add sub menu toggle.
+      $('nav ul li a:not(:only-child)').click(function(e) {
+     e.preventDefault();
+     let $dropdown = $(this).siblings('.navbar-dropdown');
+     if ($dropdown.is(':hidden')) {
+       $dropdown.slideDown('slow');
+     } else {
+       $dropdown.slideUp('slow');
+     }
+   });
+     // Click outside the dropdown will remove the dropdown class
+      $('html').click(function() {
+     $('.navbar-dropdown').slideUp(30000); //duration (in milliseconds) as needed
+   });
+ });
+    </script>
+  </body>
+</html>

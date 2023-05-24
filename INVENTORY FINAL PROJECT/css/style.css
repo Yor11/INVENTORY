@@ -1,0 +1,282 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Righteous';
+  background-image: url(/IMG/FINALS\ BG\ 2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+}
+ .navigation {
+     height: 55px;
+     background-color: #46A045;
+}
+ .brand {
+     position: absolute;
+     padding-left: 20px;
+     float: left;
+     line-height: 55px;
+     text-transform: uppercase;
+     font-size: 1.4em;
+}
+ .brand a, .brand a:visited {
+     color: #ffffff;
+     text-decoration: none;
+}
+ .nav-container {
+     max-width: 1000px;
+     margin: 0 auto;
+}
+ nav {
+     float: right;
+}
+ nav ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+}
+ nav ul li {
+     float: left;
+     position: relative;
+}
+nav ul li a,nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 55px;
+    color: #fff;
+    background: #4aa149;
+    text-decoration: none;
+}
+nav ul li a{
+    background: transparent;
+    color: #FFF;
+}
+nav ul li a:hover, nav ul li a:visited:hover {
+    background: #f58c15;
+    color: #ffffff;
+}
+ .navbar-dropdown li a{
+     background: #46A045;
+}
+ nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+     padding-left: 4px;
+     content: ' \025BE';
+}
+ nav ul li ul li {
+     min-width: 190px;
+}
+ nav ul li ul li a {
+     padding: 15px;
+     line-height: 20px;
+}
+ .navbar-dropdown {
+     position: absolute;
+     display: none;
+     z-index: 1;
+     background: #fff;
+     box-shadow: 0 0 35px 0 rgba(0,0,0,0.25);
+}
+/* Mobile navigation */
+ .nav-mobile {
+     display: none;
+     position: absolute;
+     top: 0;
+     right: 0;
+     background: transparent;
+     height: 55px;
+     width: 70px;
+}
+ @media only screen and (max-width: 800px) {
+     .nav-mobile {
+         display: block;
+    }
+     nav {
+         width: 100%;
+         padding: 55px 0 15px;
+    }
+     nav ul {
+         display: none;
+    }
+     nav ul li {
+         float: none;
+    }
+     nav ul li a {
+         padding: 15px;
+         line-height: 20px;
+         background: #262626;
+    }
+     nav ul li ul li a {
+         padding-left: 30px;
+    }
+     .navbar-dropdown {
+         position: static;
+}
+ @media screen and (min-width:800px) {
+     .nav-list {
+         display: block !important;
+    }
+}
+ #navbar-toggle {
+     position: absolute;
+     left: 18px;
+     top: 15px;
+     cursor: pointer;
+     padding: 10px 35px 16px 0px;
+}
+ #navbar-toggle span, #navbar-toggle span:before, #navbar-toggle span:after {
+     cursor: pointer;
+     border-radius: 1px;
+     height: 3px;
+     width: 30px;
+     background: #ffffff;
+     position: absolute;
+     display: block;
+     content: '';
+     transition: all 6000ms ease-in-out;
+}
+ #navbar-toggle span:before {
+     top: -10px;
+}
+ #navbar-toggle span:after {
+     bottom: -10px;
+}
+ #navbar-toggle.active span {
+     background-color: transparent;
+}
+ #navbar-toggle.active span:before, #navbar-toggle.active span:after {
+     top: 0;
+}
+ #navbar-toggle.active span:before {
+     transform: rotate(45deg);
+}
+ #navbar-toggle.active span:after {
+     transform: rotate(-45deg);
+}
+ }
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+  width: 80%;
+  border-radius: 10px;
+  font-family: 'Righteous';
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'Righteous';
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  background-color: #b9b9b921;
+  font-family: 'Righteous';
+}
+th {
+  background-color: #46A045; 
+  color: white;
+}
+h2
+{
+  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  color: #46A045; 
+  font-family: 'Righteous';
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+    display: none; 
+  }
+  #logout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #logout-modal .modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    max-width: 310px;
+  }
+  
+  #logout-modal p {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  
+  #logout-modal button {
+    background-color:#46A045;
+    color: #fff;
+    border: none;
+    padding:10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right:-35px;
+    margin-left: 52px;
+    font-family: 'Righteous';
+  }
+  
+  #logout-modal button:hover {
+    background-color: #f58c15;
+  }
+  .home-content {
+    text-align: center;
+    padding: 200px;
+    margin-top: -40px;
+  }
+  
+  .home-content h1 {
+    font-size:90px;
+    color: #ffffff;
+    margin-bottom: -8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .home-content p {
+    font-size: 20px;
+    color: #1d1c1c9c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.096);
+  }
+  
+
+  

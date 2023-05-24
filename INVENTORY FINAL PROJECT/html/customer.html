@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/customer.css" />
+    <script type="module" src="/js/customer.js"></script>
+    <script type="module" src="/js/user.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+  </head>
+  <body>
+    <div class="nav">
+      <div id="main">
+        <div class="user-profile">
+          <span>LOG OUT</span>
+            <a id="logout"><i class="uil uil-sign-out-alt" style="font-size: 26px;"></i></a>
+      </div>
+    </div>
+    
+    <div class="cart-container">
+      <button class="cart-btn"><i class="uil uil-shopping-cart-alt"></i></button>
+      <div class="cart-section">
+        <h2>CUSTOMER'S LIST</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Name</th>
+              <th>Unit</th>
+              <th>SRP</th>
+              <th>Qty</th>
+            </tr>
+          </thead>
+          <tbody id="transferTableBody">
+          </tbody>
+        </table>
+        <br>
+        <div id="totalSrp"></div>
+        <button id="selectAllBtn">Select All</button>
+        <button id="unselectAllBtn">Unselect All</button>
+        <button id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+      <div class="flex-box">
+    <label for="productCategory">FILTER BY CATEGORY:</label>
+       <select id="productCategory">
+      <option value="" disabled selected>Select a category</option>
+      <option value="Produce">Produce</option>
+      <option value="Meat and Poultry">Meat and poultry</option>
+      <option value="Dairy">Dairy</option>
+      <option value="Frozen Foods">Frozen Foods</option>
+      <option value="Deli">Deli</option>
+      <option value="Snacks and Beverages">Snacks and Beverages</option>
+      <option value="Canned and Packaged Goods">Canned and Packaged Goods</option>
+    </select>
+    <p>
+      <label for="productSearch">SEARCH FOR A PRODUCT:</label>
+      <input type="text" id="productSearch">
+    </p>
+    <div class="responsive-table-wrapper">
+    <div class="product-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>CATEGORY</th>
+          <th>PRODUCT NAME</th>
+          <th>UNIT</th>
+          <th>SRP</th>
+          <th>COST</th>
+          <th>QUANTITY</th>
+          <th>EXPIRATION DATE</th>
+          <th>ACTION</th>
+           <!-- Add a new column for checkbox -->
+        </tr>
+      </thead>
+      <tbody id="filteredProductTableBody">
+      </tbody>      
+    </table>
+    </div>
+    <!-- Modal HTML structure -->
+    <!--- -CUSTOMER'S LIST -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="/js/user.js"></script>
+<script>
+</script>
+  </body>
+</html>

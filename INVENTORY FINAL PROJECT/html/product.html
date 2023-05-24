@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+
+  <link rel="stylesheet" href="/css/product.css" />
+  <script src="/js/user.js"></script>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<body>
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#!">PNC-PGSIS</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+            <a href="/html/home.html">HOME</a>
+          </li>
+          <li>
+            <a href="/html/product.html">PRODUCTS</a>
+          </li>
+          <li>
+            <a href="#!">REPORTS</a>
+            <ul class="navbar-dropdown">
+              <li>
+                <a href="/html/sales.html">SALES REPORT</a>
+              </li>
+              <li>
+                <a href="/html/inventory.html">INVENTORY REPORT</a>
+              </li>
+              <li>
+                <a href="/html/purchase.html">PURCHASE REPORT</a>
+              </li>
+              <li>
+                <a href="/html/expiration.html">EXPIRATION REPORT</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a id="user-modal-link" href="#user-modal">ACCOUNTS</a>
+          </li>            
+          <li>
+            <a href="#" id="logout"><i class="uil uil-sign-out-alt" style="font-size: 25px;"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <div class="modal-overlay">
+  <div id="user-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>ACCOUNTS LIST</h2>
+      <table id="user-table">
+        <thead>
+          <tr>
+            <th>USERNAME</th>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+          </tr>
+        </thead>
+        <tbody id="user-list"></tbody>
+      </table></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="product-container">
+    <div class="product-form">
+      <form>
+        <label for="productCategory">PRODUCT CATEGORY</label>
+        <select id="productCategory" name="productCategory">
+          <option value="Deli">Deli</option>
+          <option value="Dairy">Dairy</option>
+           <option value="Frozen Foods">Frozen Foods</option>
+          <option value="Produce">Produce</option>
+          <option value="Meat and Poultry">Meat and Poultry</option>
+          <option value="Snacks and Beverages">Snacks and Beverages</option>
+          <option value="Canned and Packaged Goods">Canned and Packaged Goods</option>
+        </select><br><br>
+        <label for="productName">PRODUCT NAME</label>
+        <input type="text" id="productName" name="productName"><br><br>
+        <!-----UNIT -->
+        <label for="unitCategory">UNIT</label>
+        <select id="unitCategory" name="unitCategory">
+          <optgroup label="Weight Units">
+            <option value="g">Grams (g)</option>
+            <option value="kg">Kilograms (kg)</option>
+            <option value="oz">Ounces (oz)</option>
+            <option value="lb">Pounds (lb)</option>
+          </optgroup>
+          <optgroup label="Volume Units">
+            <option value="ml">Milliliters (mL)</option>
+            <option value="l">Liters (L)</option>
+            <option value="fl_oz">Fluid Ounces (fl oz)</option>
+            <option value="gal">Gallons (gal)</option>
+          </optgroup>
+          <optgroup label="Count Units">
+            <option value="ea">Each (ea)</option>
+            <option value="dz">Dozen (dz)</option>
+            <option value="pk">Pack (pk)</option>
+            <option value="cs">Case (cs)</option>
+          </optgroup>
+          <optgroup label="Other Units">
+            <option value="pc">Pieces (pc)</option>
+            <option value="rl">Rolls (rl)</option>
+            <option value="sh">Sheets (sh)</option>
+            <option value="bg">Bags (bg)</option>
+          </optgroup>
+        </select>
+         <!-----UNIT -->
+        <label for="srp">SRP</label>
+        <input type="number" id="srp" name="srp"><br><br>
+        <label for="cost">COST</label>
+        <input type="number" id="cost" name="cost"><br><br>
+        <label for="quantity">QUANTITY</label>
+        <input type="number" id="quantity" name="quantity"><br><br>
+        <label for="expirationDate">EXPIRATION DATE</label>
+        <input type="date" id="expirationDate" name="expirationDate"><br><br>
+        <button type="submit" id="addProductBtn">ADD PRODUCT</button>
+       <div>
+    </div>
+      </form>
+    </div>
+    <div class="product-table">
+      <h2>PRODUCT LIST</h2>
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Unit</th>
+            <th>SRP</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th>Exp. Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="module" src="/js/product.js"></script>
+  <script type="module" src="/js/user.js"></script>
+  <script>
+    $(document).ready(function() {
+   // open and close nav
+    $('#navbar-toggle').click(function() {
+    $('nav ul').slideToggle();
+   });
+
+    // Hamburger toggle
+   $('#navbar-toggle').on('click', function() {
+   $(this).toggleClass('active');
+  });
+
+   // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+   e.preventDefault();
+   let $dropdown = $(this).siblings('.navbar-dropdown');
+   if ($dropdown.is(':hidden')) {
+     $dropdown.slideDown('slow');
+   } else {
+     $dropdown.slideUp('slow');
+   }
+ });
+   // Click outside the dropdown will remove the dropdown class
+    $('html').click(function() {
+   $('.navbar-dropdown').slideUp(50000); //duration (in milliseconds) as needed
+ });
+});
+  </script>
+</body>
+</html>
+
